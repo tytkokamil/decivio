@@ -1,0 +1,26 @@
+/* Landing page ambient effects */
+
+.mesh-gradient {
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, hsl(225 65% 55% / 0.04), transparent),
+              radial-gradient(ellipse 60% 50% at 80% 50%, hsl(250 55% 58% / 0.03), transparent),
+              radial-gradient(ellipse 60% 50% at 20% 80%, hsl(225 65% 55% / 0.02), transparent);
+}
+
+.dark .mesh-gradient {
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, hsl(225 70% 60% / 0.08), transparent),
+              radial-gradient(ellipse 60% 50% at 80% 50%, hsl(250 60% 62% / 0.06), transparent),
+              radial-gradient(ellipse 60% 50% at 20% 80%, hsl(225 70% 60% / 0.04), transparent);
+}
+
+.floating-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: float 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-30px); }
+}
