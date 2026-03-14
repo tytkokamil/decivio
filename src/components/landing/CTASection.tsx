@@ -32,7 +32,7 @@ const CTASection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.04em] mb-6 leading-[1.08]">
+          <h2 className="text-3xl md:text-[2.75rem] font-bold tracking-[-0.04em] mb-5 leading-[1.1]">
             Erste Entscheidung in 3 Minuten.
             <br />
             <span className="gradient-text">Keine Kreditkarte. Kein IT-Projekt.</span>

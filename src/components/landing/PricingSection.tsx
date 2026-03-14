@@ -197,21 +197,30 @@ const PricingSection = () => {
   const [tableOpen, setTableOpen] = useState(false);
 
   return (
-    <section id="pricing" className="py-24 relative">
+    <section id="pricing" className="py-28 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease }}
-          className="text-center max-w-2xl mx-auto mb-10"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease }}
+          className="text-center max-w-2xl mx-auto mb-12"
         >
-          <p className="text-xs font-semibold text-primary mb-4 tracking-[0.2em] uppercase">Preise</p>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/5 mb-6"
+          >
+            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+            <span className="text-[11px] font-semibold text-primary tracking-[0.15em] uppercase">Preise</span>
+          </motion.div>
+          <h2 className="text-3xl md:text-[2.75rem] font-bold tracking-[-0.04em] mb-5 leading-[1.1]">
             Transparent. Fair. Skalierbar.
           </h2>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-[16px] leading-relaxed text-muted-foreground">
             Alle Pläne mit 14 Tagen kostenloser Testphase. Keine Kreditkarte nötig.
           </p>
         </motion.div>
