@@ -19,12 +19,12 @@ const AIShowcaseSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center max-w-6xl mx-auto">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.9, ease }}>
-            <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1, duration: 0.5 }} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border bg-muted/30 mb-8">
-              <div className="w-1.5 h-1.5 rounded-full bg-foreground/30" />
-              <span className="text-[11px] font-medium text-muted-foreground tracking-widest uppercase">KI-gestützte Intelligenz</span>
+            <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1, duration: 0.5 }} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/5 mb-8">
+              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+              <span className="text-[11px] font-semibold text-primary tracking-[0.15em] uppercase">KI-gestützte Intelligenz</span>
             </motion.div>
 
-            <h2 className="text-3xl md:text-[2.75rem] font-bold mb-6 tracking-[-0.04em] leading-[1.1]">
+            <h2 className="text-3xl md:text-[2.75rem] font-bold mb-5 tracking-[-0.04em] leading-[1.1]">
               Entscheidungsintelligenz{" "}
               <span className="gradient-text">die mitdenkt</span>
             </h2>
