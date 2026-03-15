@@ -57,8 +57,7 @@ const FoundingSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.7, ease }}
-            className="text-3xl md:text-[2.75rem] font-bold tracking-[-0.04em] leading-[1.1] mb-5"
-            style={{ color: "rgba(255,255,255,0.95)" }}
+            className="text-3xl md:text-[2.75rem] font-bold tracking-[-0.04em] leading-[1.1] mb-5 text-foreground"
           >
             Professional für{" "}
             <span
