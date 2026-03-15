@@ -79,8 +79,7 @@ const FoundingSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.35, duration: 0.6, ease }}
-            className="text-[16px] max-w-md mx-auto leading-relaxed mb-8"
-            style={{ color: "rgba(255,255,255,0.45)" }}
+            className="text-[16px] max-w-md mx-auto leading-relaxed mb-8 text-muted-foreground"
           >
             Lebenslang fixierter Preis für die ersten {total} Kunden.
             Nur noch {remaining} Plätze verfügbar.
