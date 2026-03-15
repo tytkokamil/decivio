@@ -102,7 +102,7 @@ const FoundingSection = () => {
                 {remaining} frei
               </span>
             </div>
-            <div className="h-2 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.06)" }}>
+            <div className="h-2 rounded-full overflow-hidden bg-muted">
               <motion.div
                 className="h-full rounded-full"
                 style={{ background: "linear-gradient(90deg, hsl(var(--accent-amber)), hsl(var(--accent-rose)))" }}
