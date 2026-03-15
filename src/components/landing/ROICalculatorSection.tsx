@@ -190,7 +190,7 @@ const ROICalculatorSection = React.memo(() => {
             {/* CTA */}
             <div className="text-center pt-2">
               <Link
-                to="/auth"
+                to="/auth?mode=register"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
               >
                 Diese Einsparung realisieren <ArrowRight className="w-3.5 h-3.5" />

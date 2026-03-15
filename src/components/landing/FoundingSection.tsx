@@ -1,33 +1,13 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Crown, Flame } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
+import { useFoundingSlots } from "@/hooks/useFoundingSlots";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const FoundingSection = () => {
-  const [claimed, setClaimed] = useState(3);
-  const [total, setTotal] = useState(20);
-
-  useEffect(() => {
-    const fetch = async () => {
-      try {
-        const { data } = await supabase
-          .from("founding_customer_slots")
-          .select("claimed_slots, total_slots")
-          .limit(1)
-          .single();
-        if (data) {
-          setClaimed(data.claimed_slots ?? 3);
-          setTotal(data.total_slots ?? 20);
-        }
-      } catch { /* fallback */ }
-    };
-    fetch();
-  }, []);
-
-  const remaining = total - claimed;
+  const { data } = useFoundingSlots();
+  const { claimed, total, remaining } = data;
   const progress = (claimed / total) * 100;
 
   if (remaining <= 0) return null;
@@ -71,7 +51,7 @@ const FoundingSection = () => {
             </span>
           </motion.div>
 
-          {/* Headline — compact teaser */}
+          {/* Headline */}
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +87,7 @@ const FoundingSection = () => {
             Nur noch {remaining} Plätze verfügbar.
           </motion.p>
 
-          {/* Compact progress indicator */}
+          {/* Progress indicator */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -136,7 +116,7 @@ const FoundingSection = () => {
             </div>
           </motion.div>
 
-          {/* CTA → links to dedicated founding page */}
+          {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -162,8 +162,8 @@ const Navbar = () => {
                 to="/auth"
                 className="group/cta relative inline-flex items-center gap-1.5 text-[13px] font-semibold text-white px-5 py-2.5 rounded-full transition-all duration-300 overflow-hidden"
                 style={{
-                  background: "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-blue)))",
-                  boxShadow: "0 0 20px -4px hsl(var(--primary) / 0.3)",
+                  background: "hsl(0 84% 60%)",
+                  boxShadow: "0 0 20px -4px hsl(0 84% 60% / 0.4)",
                 }}
               >
                 <span className="relative z-10 flex items-center gap-1.5">
@@ -231,7 +231,7 @@ const Navbar = () => {
               ))}
               <div className="pt-4 mt-3 space-y-2" style={{ borderTop: `1px solid ${isDark ? "hsl(var(--border) / 0.1)" : "hsl(var(--border) / 0.3)"}` }}>
                 <Link to="/login" className="block text-center text-sm py-2" style={{ color: isDark ? "hsl(var(--primary-foreground))" : "hsl(var(--foreground))" }}>Einloggen</Link>
-                <Link to="/auth" className="block text-center text-sm font-medium text-primary-foreground py-2.5 rounded-full" style={{ background: "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-blue)))" }}>Kostenlos starten</Link>
+                <Link to="/auth" className="block text-center text-sm font-medium text-white py-2.5 rounded-full" style={{ background: "hsl(0 84% 60%)" }}>Kostenlos starten</Link>
               </div>
             </div>
           </motion.div>
