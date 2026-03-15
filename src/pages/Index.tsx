@@ -94,18 +94,16 @@ const Index = () => {
         <main>
           {/* ── Dark zone: seamless dark background ── */}
           <HeroSection />
-          <Suspense fallback={<SectionFallback />}>
-            <FoundingSection />
-          </Suspense>
           <LogoBar />
 
           {/* ── Content zone: themed background ── */}
           <Suspense fallback={<SectionFallback />}>
             <ProblemSection />
+            <ROICalculatorSection />
+            <SectionDivider />
             <SolutionSection />
             <SectionDivider />
             <BeforeAfterTimeline />
-            <ROICalculatorSection />
             <SectionDivider />
             <ProductShowcase />
             <RolesSection />
@@ -116,6 +114,7 @@ const Index = () => {
             <AIShowcaseSection />
             <SectionDivider />
             <PricingSection />
+            <FoundingSection />
             <FAQSection />
             <CTASection />
           </Suspense>
