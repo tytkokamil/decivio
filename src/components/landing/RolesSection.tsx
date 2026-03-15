@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -40,23 +42,6 @@ const roles = [
     ],
   },
   {
-    icon: "👥",
-    name: "Team-Lead / Org-Lead",
-    badge: "Starter / Professional",
-    badgeClass: "bg-accent-blue/10 text-accent-blue",
-    sees: [
-      "Team-Cockpit: alle Entscheidungen und Tasks des eigenen Teams",
-      "Decision Velocity: wie schnell werden Entscheidungen im Team getroffen?",
-      "Offene Reviews die auf Feedback warten",
-    ],
-    does: [
-      "Entscheidungen erstellen und dem Team zuweisen",
-      "Meeting-Modus starten: strukturierte Entscheidungs-Meetings leiten",
-      "Abwesenheitsvertretung für das Team konfigurieren",
-      "Team-Chat mit @Mentions für schnelle Abstimmung",
-    ],
-  },
-  {
     icon: "✅",
     name: "Reviewer / Org-Member",
     badge: "Alle Pläne",
@@ -73,11 +58,33 @@ const roles = [
       "@Mentions in Diskussionen: Feedback geben",
     ],
   },
+];
+
+const secondaryRoles = [
+  {
+    icon: "👥",
+    name: "Team-Lead / Org-Lead",
+    badge: "Starter / Professional",
+    badgeClass: "bg-accent-blue/10 text-accent-blue",
+    summary: "Leitet strukturierte Entscheidungs-Meetings, sieht Team-Velocity und verwaltet Abwesenheitsvertretungen.",
+    sees: [
+      "Team-Cockpit: alle Entscheidungen und Tasks des eigenen Teams",
+      "Decision Velocity: wie schnell werden Entscheidungen im Team getroffen?",
+      "Offene Reviews die auf Feedback warten",
+    ],
+    does: [
+      "Entscheidungen erstellen und dem Team zuweisen",
+      "Meeting-Modus starten: strukturierte Entscheidungs-Meetings leiten",
+      "Abwesenheitsvertretung für das Team konfigurieren",
+      "Team-Chat mit @Mentions für schnelle Abstimmung",
+    ],
+  },
   {
     icon: "📊",
     name: "Executive / Org-Executive",
     badge: "Professional / Enterprise",
     badgeClass: "bg-accent-violet/10 text-accent-violet",
+    summary: "Strategische KPIs ohne operativen Lärm — Board Reports, Watchlist und Zielverfolgung.",
     sees: [
       "Executive-Ansicht: strategische KPIs ohne operativen Lärm",
       "Welche Entscheidungen bewegen die strategischen Ziele?",
@@ -95,7 +102,7 @@ const roles = [
     badge: "NEU",
     badgeClass: "bg-primary/10 text-primary",
     highlighted: true,
-    subtitle: "Kein Account erforderlich",
+    summary: "Kein Account erforderlich — Lieferanten, Anwälte und Berater reviewen per Token-Link.",
     sees: [
       "Lieferanten, Rechtsanwälte, Wirtschaftsprüfer, externe Berater",
     ],
@@ -108,90 +115,155 @@ const roles = [
   },
 ];
 
-const RolesSection = () => (
-  <section id="rollen" className="py-16 relative">
-    <div className="absolute inset-0 bg-gradient-to-b from-muted/10 via-transparent to-muted/10 pointer-events-none" />
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease }}
-        className="text-center max-w-2xl mx-auto mb-16"
-      >
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1, duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/5 mb-6"
-        >
-          <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-          <span className="text-[11px] font-semibold text-primary tracking-[0.15em] uppercase">Rollen</span>
-        </motion.div>
-        <h2 className="text-3xl md:text-[2.75rem] font-bold tracking-[-0.04em] mb-5 leading-[1.1]">
-          Für jede Rolle die richtige Ansicht.
-        </h2>
-        <p className="text-[16px] leading-relaxed text-muted-foreground">
-          Decivio passt sich an — vom Geschäftsführer bis zum externen Reviewer.
-        </p>
-      </motion.div>
+const RoleCard = ({ role, i }: { role: typeof roles[0]; i: number }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: i * 0.08, duration: 0.6, ease }}
+    whileHover={{ y: -4, transition: { duration: 0.25 } }}
+    className={`group p-7 rounded-2xl border bg-card/70 backdrop-blur-sm transition-all duration-300 hover:shadow-card-hover ${
+      (role as any).highlighted ? "border-primary/30 bg-primary/[0.02]" : "border-border/30"
+    }`}
+  >
+    <div className="flex items-start justify-between mb-5">
+      <span className="text-3xl">{role.icon}</span>
+      <span className={`text-[10px] font-semibold px-2.5 py-1 rounded-full ${role.badgeClass}`}>
+        {role.badge}
+      </span>
+    </div>
+    <h3 className="text-[16px] font-bold mb-1">{role.name}</h3>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {roles.map((role, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.08, duration: 0.6, ease }}
-            whileHover={{ y: -4, transition: { duration: 0.25 } }}
-            className={`group p-7 rounded-2xl border bg-card/70 backdrop-blur-sm transition-all duration-300 hover:shadow-card-hover ${
-              (role as any).highlighted
-                ? "border-primary/30 bg-primary/[0.02]"
-                : "border-border/30"
-            }`}
-          >
-            <div className="flex items-start justify-between mb-5">
-              <span className="text-3xl">{role.icon}</span>
-              <span className={`text-[10px] font-semibold px-2.5 py-1 rounded-full ${role.badgeClass}`}>
-                {role.badge}
-              </span>
-            </div>
-            <h3 className="text-[16px] font-bold mb-1">{role.name}</h3>
-            {(role as any).subtitle && (
-              <p className="text-[12px] text-primary mb-3 font-medium">{(role as any).subtitle}</p>
-            )}
-
-            <div className="mt-5 space-y-4">
-              <div>
-                <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-2.5">Sieht:</p>
-                <ul className="space-y-2">
-                  {role.sees.map((item, j) => (
-                    <li key={j} className="text-[12px] text-muted-foreground leading-relaxed flex items-start gap-2">
-                      <span className="text-primary mt-0.5 shrink-0">•</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-2.5">Tut:</p>
-                <ul className="space-y-2">
-                  {role.does.map((item, j) => (
-                    <li key={j} className="text-[12px] text-muted-foreground leading-relaxed flex items-start gap-2">
-                      <span className="text-primary mt-0.5 shrink-0">✓</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </motion.div>
-        ))}
+    <div className="mt-5 space-y-4">
+      <div>
+        <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-2.5">Sieht:</p>
+        <ul className="space-y-2">
+          {role.sees.map((item, j) => (
+            <li key={j} className="text-[12px] text-muted-foreground leading-relaxed flex items-start gap-2">
+              <span className="text-primary mt-0.5 shrink-0">•</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-2.5">Tut:</p>
+        <ul className="space-y-2">
+          {role.does.map((item, j) => (
+            <li key={j} className="text-[12px] text-muted-foreground leading-relaxed flex items-start gap-2">
+              <span className="text-primary mt-0.5 shrink-0">✓</span>
+              {item}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
-  </section>
+  </motion.div>
 );
+
+const RolesSection = () => {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <section id="rollen" className="py-16 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-muted/10 via-transparent to-muted/10 pointer-events-none" />
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease }}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/5 mb-6"
+          >
+            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+            <span className="text-[11px] font-semibold text-primary tracking-[0.15em] uppercase">Rollen</span>
+          </motion.div>
+          <h2 className="text-3xl md:text-[2.75rem] font-bold tracking-[-0.04em] mb-5 leading-[1.1]">
+            Für jede Rolle die richtige Ansicht.
+          </h2>
+          <p className="text-[16px] leading-relaxed text-muted-foreground">
+            Decivio passt sich an — vom Geschäftsführer bis zum externen Reviewer.
+          </p>
+        </motion.div>
+
+        {/* Primary roles - always visible */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {roles.map((role, i) => (
+            <RoleCard key={i} role={role} i={i} />
+          ))}
+        </div>
+
+        {/* Secondary roles - collapsible */}
+        <AnimatePresence>
+          {expanded && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.5, ease }}
+              className="overflow-hidden"
+            >
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+                {secondaryRoles.map((role, i) => (
+                  <RoleCard key={i} role={role} i={i} />
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {!expanded && (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+            {secondaryRoles.map((role, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.5, ease }}
+                className="p-5 rounded-2xl border border-border/20 bg-card/50 backdrop-blur-sm"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">{role.icon}</span>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-[14px] font-bold">{role.name}</h3>
+                    <p className="text-[12px] text-muted-foreground leading-relaxed mt-1">{role.summary}</p>
+                  </div>
+                  <span className={`text-[10px] font-semibold px-2.5 py-1 rounded-full shrink-0 ${role.badgeClass}`}>
+                    {role.badge}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
+
+        {/* Toggle button */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="text-center mt-8"
+        >
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="inline-flex items-center gap-2 text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors px-5 py-2.5 rounded-full border border-border/30 hover:border-border/50 bg-card/50"
+          >
+            {expanded ? "Weniger anzeigen" : "Alle Rollen anzeigen"}
+            <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`} />
+          </button>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
 export default RolesSection;

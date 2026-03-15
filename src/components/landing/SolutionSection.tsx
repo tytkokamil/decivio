@@ -134,8 +134,10 @@ const SolutionSection = () => (
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.6, ease }}
               whileHover={{ y: -4, transition: { duration: 0.25 } }}
-              className="spotlight-card card-shine group relative p-7 rounded-2xl border border-border/20 bg-card/60 cursor-default overflow-hidden"
-              style={{ backdropFilter: "blur(12px)" }}
+              className="spotlight-card card-shine group relative p-7 rounded-2xl cursor-default overflow-hidden transition-all duration-200"
+              style={{ backdropFilter: "blur(12px)", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.07)"; e.currentTarget.style.borderColor = "rgba(239,68,68,0.3)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; }}
             >
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-5">
