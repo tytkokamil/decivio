@@ -191,7 +191,8 @@ const ROICalculatorSection = React.memo(() => {
             <div className="text-center pt-2">
               <Link
                 to="/auth?mode=register"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 text-sm font-bold text-white px-6 py-3 rounded-2xl transition-all"
+                style={{ background: "hsl(0 84% 60%)" }}
               >
                 Diese Einsparung realisieren <ArrowRight className="w-3.5 h-3.5" />
               </Link>
