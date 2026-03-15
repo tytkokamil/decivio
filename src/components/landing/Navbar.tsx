@@ -162,8 +162,8 @@ const Navbar = () => {
                 to="/auth"
                 className="group/cta relative inline-flex items-center gap-1.5 text-[13px] font-semibold text-white px-5 py-2.5 rounded-full transition-all duration-300 overflow-hidden"
                 style={{
-                  background: "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-blue)))",
-                  boxShadow: "0 0 20px -4px hsl(var(--primary) / 0.3)",
+                  background: "hsl(0 84% 60%)",
+                  boxShadow: "0 0 20px -4px hsl(0 84% 60% / 0.4)",
                 }}
               >
                 <span className="relative z-10 flex items-center gap-1.5">
