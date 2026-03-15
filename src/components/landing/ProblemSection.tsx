@@ -34,7 +34,7 @@ const problems = [
 ];
 
 const ProblemSection = () => (
-  <section id="problem" className="py-28 relative">
+  <section id="problem" className="py-16 relative">
     <div className="absolute inset-0 mesh-gradient opacity-30 pointer-events-none" />
     <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
       <motion.div

@@ -11,7 +11,7 @@ const CTASection = () => {
   const orbY = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
   return (
-    <section ref={ref} className="py-28 relative overflow-hidden" aria-label="Jetzt starten">
+    <section ref={ref} className="py-16 relative overflow-hidden" aria-label="Jetzt starten">
       <div className="absolute inset-0 mesh-gradient opacity-40 pointer-events-none" />
       <div className="absolute inset-0 noise-overlay pointer-events-none opacity-30" />
 
@@ -47,8 +47,8 @@ const CTASection = () => {
               to="/auth"
               className="group relative inline-flex items-center justify-center gap-2.5 text-[15px] font-bold text-primary-foreground px-10 py-4.5 rounded-2xl transition-all duration-300 overflow-hidden"
               style={{
-                background: "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-blue)))",
-                boxShadow: "0 0 50px -10px hsl(var(--primary) / 0.5), 0 0 100px -20px hsl(var(--accent-blue) / 0.3)",
+                background: "hsl(0 84% 60%)",
+                boxShadow: "0 0 50px -10px hsl(0 84% 60% / 0.5)",
               }}
             >
               <span

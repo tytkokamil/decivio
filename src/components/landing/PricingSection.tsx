@@ -197,7 +197,7 @@ const PricingSection = () => {
   const [tableOpen, setTableOpen] = useState(false);
 
   return (
-    <section id="pricing" className="py-28 relative">
+    <section id="pricing" className="py-16 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div

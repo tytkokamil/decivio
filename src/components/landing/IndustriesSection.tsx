@@ -14,7 +14,7 @@ const IndustriesSection = () => {
   const active = industries.find(ind => ind.slug === activeSlug);
 
   return (
-    <section id="branchen" className="py-28 relative">
+    <section id="branchen" className="py-16 relative">
       <div className="absolute inset-0 dot-grid opacity-30 pointer-events-none" />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         <motion.div

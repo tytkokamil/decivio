@@ -42,7 +42,7 @@ const CellIcon = ({ value, isDecivio }: { value: CellValue; isDecivio: boolean }
 };
 
 const ComparisonSection = React.memo(() => (
-  <section id="comparison" className="py-28 relative">
+  <section id="comparison" className="py-16 relative">
     <div className="absolute inset-0 bg-gradient-to-b from-muted/20 via-transparent to-muted/10 pointer-events-none" />
     <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
       <motion.div

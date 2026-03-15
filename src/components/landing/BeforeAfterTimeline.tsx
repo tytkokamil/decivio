@@ -25,7 +25,7 @@ const BeforeAfterTimeline = () => {
   const lineProgress = useTransform(scrollYProgress, [0.15, 0.65], [0, 1]);
 
   return (
-    <section ref={ref} id="before-after" className="py-28 relative overflow-hidden">
+    <section ref={ref} id="before-after" className="py-16 relative overflow-hidden">
       <div className="absolute inset-0 dot-grid opacity-30 pointer-events-none" />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
@@ -166,9 +166,10 @@ const BeforeAfterTimeline = () => {
         >
           <Link
             to="/auth"
-            className="group inline-flex items-center gap-2.5 text-[14px] font-semibold text-primary hover:gap-3.5 transition-all duration-300 px-6 py-3 rounded-xl border border-primary/20 bg-primary/5 hover:bg-primary/10"
+            className="group inline-flex items-center gap-2.5 text-[14px] font-bold text-white px-8 py-3.5 rounded-2xl transition-all duration-300"
+            style={{ background: "hsl(0 84% 60%)", boxShadow: "0 0 30px -8px hsl(0 84% 60% / 0.4)" }}
           >
-            Den Unterschied selbst erleben <ArrowRight className="w-4 h-4" />
+            Den Unterschied selbst erleben <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </Link>
         </motion.div>
       </div>

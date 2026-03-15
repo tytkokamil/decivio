@@ -13,7 +13,7 @@ const FoundingSection = () => {
   if (remaining <= 0) return null;
 
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden bg-background">
+    <section className="relative py-16 overflow-hidden bg-background">
       {/* Subtle ambient glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div
@@ -123,11 +123,10 @@ const FoundingSection = () => {
           >
             <Link
               to="/founding"
-              className="group relative inline-flex items-center justify-center gap-2.5 text-[15px] font-bold px-10 py-4 rounded-2xl transition-all duration-300 overflow-hidden"
+              className="group relative inline-flex items-center justify-center gap-2.5 text-[15px] font-bold text-white px-10 py-4 rounded-2xl transition-all duration-300 overflow-hidden"
               style={{
-                background: "linear-gradient(135deg, hsl(var(--accent-amber)), hsl(var(--accent-rose) / 0.85))",
-                color: "hsl(38 80% 12%)",
-                boxShadow: "0 0 50px -10px hsl(var(--accent-amber) / 0.4)",
+                background: "hsl(0 84% 60%)",
+                boxShadow: "0 0 50px -10px hsl(0 84% 60% / 0.4)",
               }}
             >
               <span className="relative z-10 flex items-center gap-2.5">

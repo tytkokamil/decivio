@@ -210,8 +210,8 @@ const HeroSection = () => {
                 to="/auth"
                 className="group relative inline-flex items-center justify-center gap-2.5 text-[15px] font-bold text-white px-9 py-4.5 rounded-2xl transition-all duration-300 overflow-hidden"
                 style={{
-                  background: "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-blue)))",
-                  boxShadow: "0 0 50px -10px hsl(var(--primary) / 0.5), 0 0 100px -20px hsl(var(--accent-blue) / 0.3)",
+                  background: "hsl(0 84% 60%)",
+                  boxShadow: "0 0 50px -10px hsl(0 84% 60% / 0.5)",
                 }}
               >
                 {/* Shine effect */}

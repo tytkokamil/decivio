@@ -59,7 +59,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <section id="faq" className="py-28 relative">
+    <section id="faq" className="py-16 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/10 to-transparent pointer-events-none" />
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
