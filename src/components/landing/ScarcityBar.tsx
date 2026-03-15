@@ -1,50 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Flame, X, ArrowRight } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
-
-const FALLBACK_CLAIMED = 3;
-const FALLBACK_TOTAL = 20;
+import { useFoundingSlots } from "@/hooks/useFoundingSlots";
 
 const ScarcityBar = () => {
   const [dismissed, setDismissed] = useState(() => localStorage.getItem("scarcity_closed") === "true");
-  const [claimed, setClaimed] = useState<number>(FALLBACK_CLAIMED);
-  const [totalSlots, setTotalSlots] = useState<number>(FALLBACK_TOTAL);
+  const { data } = useFoundingSlots();
+  const { claimed, total: totalSlots, remaining } = data;
 
-  useEffect(() => {
-    const fetchSlots = async () => {
-      try {
-        const { data } = await supabase
-          .from("founding_customer_slots")
-          .select("claimed_slots, total_slots")
-          .limit(1)
-          .single();
-        if (data) {
-          setClaimed(data.claimed_slots ?? FALLBACK_CLAIMED);
-          setTotalSlots(data.total_slots ?? FALLBACK_TOTAL);
-        }
-      } catch { /* fallback */ }
-    };
-    fetchSlots();
-
-    const channel = supabase
-      .channel("founding_slots_realtime")
-      .on(
-        "postgres_changes",
-        { event: "UPDATE", schema: "public", table: "founding_customer_slots" },
-        (payload) => {
-          const row = payload.new as any;
-          if (typeof row?.claimed_slots === "number") setClaimed(row.claimed_slots);
-          if (typeof row?.total_slots === "number") setTotalSlots(row.total_slots);
-        }
-      )
-      .subscribe();
-
-    return () => { supabase.removeChannel(channel); };
-  }, []);
-
-  const remaining = totalSlots - claimed;
   const soldOut = remaining <= 0;
 
   const handleDismiss = () => {
@@ -87,7 +51,7 @@ const ScarcityBar = () => {
             <>
               <span className="inline-flex items-center gap-1.5">
                 <Flame className="w-3.5 h-3.5" />
-                <span className="hidden md:inline">⚡ Founding Program:</span> Noch <span className="font-bold">{remaining} von {totalSlots}</span> Plätzen
+                <span className="hidden md:inline">⚡ Founding Program:</span> Noch <span className="font-bold">{claimed} von {totalSlots}</span> Plätzen vergeben
                 <span className="hidden md:inline">— Professional €89/Mo statt €149, lebenslang fixiert</span>
               </span>
 
