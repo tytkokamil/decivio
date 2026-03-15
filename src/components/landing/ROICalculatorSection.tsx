@@ -87,7 +87,7 @@ const ROICalculatorSection = React.memo(() => {
   };
 
   return (
-    <section id="roi" className="py-28 relative">
+    <section id="roi" className="py-16 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

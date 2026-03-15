@@ -109,7 +109,7 @@ const roles = [
 ];
 
 const RolesSection = () => (
-  <section id="rollen" className="py-28 relative">
+  <section id="rollen" className="py-16 relative">
     <div className="absolute inset-0 bg-gradient-to-b from-muted/10 via-transparent to-muted/10 pointer-events-none" />
     <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
       <motion.div

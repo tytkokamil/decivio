@@ -11,7 +11,7 @@ const CTASection = () => {
   const orbY = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
   return (
-    <section ref={ref} className="py-28 relative overflow-hidden" aria-label="Jetzt starten">
+    <section ref={ref} className="py-16 relative overflow-hidden" aria-label="Jetzt starten">
       <div className="absolute inset-0 mesh-gradient opacity-40 pointer-events-none" />
       <div className="absolute inset-0 noise-overlay pointer-events-none opacity-30" />
 

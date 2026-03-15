@@ -247,7 +247,7 @@ const ProductShowcase = () => {
   const MockupComponent = mockups[active];
 
   return (
-    <section ref={sectionRef} id="product" className="py-28 relative overflow-hidden">
+    <section ref={sectionRef} id="product" className="py-16 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-muted/20 via-transparent to-muted/20" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">

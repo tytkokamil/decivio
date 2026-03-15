@@ -25,7 +25,7 @@ const BeforeAfterTimeline = () => {
   const lineProgress = useTransform(scrollYProgress, [0.15, 0.65], [0, 1]);
 
   return (
-    <section ref={ref} id="before-after" className="py-28 relative overflow-hidden">
+    <section ref={ref} id="before-after" className="py-16 relative overflow-hidden">
       <div className="absolute inset-0 dot-grid opacity-30 pointer-events-none" />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
         <motion.div

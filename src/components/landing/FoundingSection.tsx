@@ -13,7 +13,7 @@ const FoundingSection = () => {
   if (remaining <= 0) return null;
 
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden bg-background">
+    <section className="relative py-16 overflow-hidden bg-background">
       {/* Subtle ambient glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div

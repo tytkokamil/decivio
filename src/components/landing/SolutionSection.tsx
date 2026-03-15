@@ -63,7 +63,7 @@ const accentMap: Record<string, { icon: string; bg: string; tag: string }> = {
 };
 
 const SolutionSection = () => (
-  <section id="solution" className="py-28 relative overflow-hidden">
+  <section id="solution" className="py-16 relative overflow-hidden">
     <div className="absolute inset-0 mesh-gradient opacity-20 pointer-events-none" />
     <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
       <motion.div

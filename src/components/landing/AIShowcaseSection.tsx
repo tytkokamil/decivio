@@ -14,7 +14,7 @@ const capabilities = [
 
 const AIShowcaseSection = () => {
   return (
-    <section className="py-28 relative overflow-hidden">
+    <section className="py-16 relative overflow-hidden">
       <div className="absolute inset-0 dot-grid opacity-30 pointer-events-none" />
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center max-w-6xl mx-auto">
