@@ -13,7 +13,7 @@ const FoundingSection = () => {
   if (remaining <= 0) return null;
 
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden" style={{ background: "hsl(222, 47%, 4%)" }}>
+    <section className="relative py-20 md:py-28 overflow-hidden bg-background">
       {/* Subtle ambient glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div
@@ -57,8 +57,7 @@ const FoundingSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.7, ease }}
-            className="text-3xl md:text-[2.75rem] font-bold tracking-[-0.04em] leading-[1.1] mb-5"
-            style={{ color: "rgba(255,255,255,0.95)" }}
+            className="text-3xl md:text-[2.75rem] font-bold tracking-[-0.04em] leading-[1.1] mb-5 text-foreground"
           >
             Professional für{" "}
             <span
@@ -80,8 +79,7 @@ const FoundingSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.35, duration: 0.6, ease }}
-            className="text-[16px] max-w-md mx-auto leading-relaxed mb-8"
-            style={{ color: "rgba(255,255,255,0.45)" }}
+            className="text-[16px] max-w-md mx-auto leading-relaxed mb-8 text-muted-foreground"
           >
             Lebenslang fixierter Preis für die ersten {total} Kunden.
             Nur noch {remaining} Plätze verfügbar.
@@ -96,7 +94,7 @@ const FoundingSection = () => {
             className="max-w-xs mx-auto mb-10"
           >
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[12px] font-medium" style={{ color: "rgba(255,255,255,0.5)" }}>
+              <span className="text-[12px] font-medium text-muted-foreground">
                 <Flame className="w-3.5 h-3.5 inline-block mr-1 text-accent-amber" />
                 {claimed}/{total} vergeben
               </span>
@@ -104,7 +102,7 @@ const FoundingSection = () => {
                 {remaining} frei
               </span>
             </div>
-            <div className="h-2 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.06)" }}>
+            <div className="h-2 rounded-full overflow-hidden bg-muted">
               <motion.div
                 className="h-full rounded-full"
                 style={{ background: "linear-gradient(90deg, hsl(var(--accent-amber)), hsl(var(--accent-rose)))" }}
