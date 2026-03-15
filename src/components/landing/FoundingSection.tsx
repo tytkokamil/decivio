@@ -94,7 +94,7 @@ const FoundingSection = () => {
             className="max-w-xs mx-auto mb-10"
           >
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[12px] font-medium" style={{ color: "rgba(255,255,255,0.5)" }}>
+              <span className="text-[12px] font-medium text-muted-foreground">
                 <Flame className="w-3.5 h-3.5 inline-block mr-1 text-accent-amber" />
                 {claimed}/{total} vergeben
               </span>
