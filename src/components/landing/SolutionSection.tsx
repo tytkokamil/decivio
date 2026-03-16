@@ -98,10 +98,32 @@ const SolutionSection = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, ease }}
-        whileHover={{ y: -3, transition: { duration: 0.25 } }}
-        className="spotlight-card card-shine group relative p-8 md:p-10 rounded-2xl border border-border/20 bg-card/70 mb-5 overflow-hidden"
-        style={{ backdropFilter: "blur(16px)" }}
+        whileHover={{ y: -4, transition: { duration: 0.25 } }}
+        className="group relative p-8 md:p-10 rounded-2xl mb-5 overflow-hidden"
+        style={{
+          background: "rgba(255,255,255,0.03)",
+          border: "1px solid rgba(255,255,255,0.08)",
+          backdropFilter: "blur(16px)",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+          e.currentTarget.style.borderColor = "hsl(var(--accent-amber) / 0.3)";
+          e.currentTarget.style.boxShadow = "0 20px 60px -15px hsl(var(--accent-amber) / 0.15), 0 0 0 1px hsl(var(--accent-amber) / 0.1)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.background = "rgba(255,255,255,0.03)";
+          e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+          e.currentTarget.style.boxShadow = "none";
+        }}
       >
+        {/* Ambient glow */}
+        <div
+          className="absolute top-0 right-0 w-[300px] h-[200px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+          style={{
+            background: "radial-gradient(ellipse, hsl(var(--accent-amber) / 0.08) 0%, transparent 70%)",
+            filter: "blur(40px)",
+          }}
+        />
         <div className="relative z-10 flex flex-col md:flex-row items-start gap-6">
           <div className="w-14 h-14 rounded-2xl bg-accent-amber/8 flex items-center justify-center shrink-0">
             <Timer className="w-7 h-7 text-accent-amber" />
@@ -126,6 +148,10 @@ const SolutionSection = () => (
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {features.map((f, i) => {
           const colors = accentMap[f.accent] || accentMap.primary;
+          const accentHsl = f.accent === "accent-blue" ? "var(--accent-blue)" 
+            : f.accent === "accent-teal" ? "var(--accent-teal)"
+            : f.accent === "accent-violet" ? "var(--accent-violet)"
+            : "var(--primary)";
           return (
             <motion.div
               key={i}
@@ -133,12 +159,32 @@ const SolutionSection = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.6, ease }}
-              whileHover={{ y: -4, transition: { duration: 0.25 } }}
-              className="spotlight-card card-shine group relative p-7 rounded-2xl cursor-default overflow-hidden transition-all duration-200"
-              style={{ backdropFilter: "blur(12px)", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.07)"; e.currentTarget.style.borderColor = "rgba(239,68,68,0.3)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; }}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              className="group relative p-7 rounded-2xl cursor-default overflow-hidden transition-all duration-300"
+              style={{
+                backdropFilter: "blur(12px)",
+                background: "rgba(255,255,255,0.03)",
+                border: "1px solid rgba(255,255,255,0.06)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+                e.currentTarget.style.borderColor = `hsl(${accentHsl} / 0.3)`;
+                e.currentTarget.style.boxShadow = `0 20px 60px -15px hsl(${accentHsl} / 0.15), 0 0 0 1px hsl(${accentHsl} / 0.1)`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "rgba(255,255,255,0.03)";
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
             >
+              {/* Ambient corner glow */}
+              <div
+                className="absolute top-0 left-0 w-[200px] h-[150px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{
+                  background: `radial-gradient(ellipse at 0% 0%, hsl(${accentHsl} / 0.08) 0%, transparent 70%)`,
+                  filter: "blur(30px)",
+                }}
+              />
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-5">
                   <div className={`w-11 h-11 rounded-xl ${colors.bg} flex items-center justify-center transition-colors duration-500`}>

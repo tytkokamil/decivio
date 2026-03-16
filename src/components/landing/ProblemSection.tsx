@@ -75,13 +75,32 @@ const ProblemSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.6, ease }}
-            whileHover={{ y: -4, transition: { duration: 0.25 } }}
-            className="spotlight-card card-shine group relative p-7 rounded-2xl bg-card/80 border border-border/20 transition-all duration-300"
+            whileHover={{ y: -6, transition: { duration: 0.25 } }}
+            className="group relative p-7 rounded-2xl overflow-hidden transition-all duration-300"
             style={{
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(255,255,255,0.06)",
               backdropFilter: "blur(12px)",
               borderLeft: `3px solid ${p.accentColor}`,
             }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)";
+              e.currentTarget.style.boxShadow = `0 20px 60px -15px ${p.accentColor}33, 0 0 0 1px ${p.accentColor}20`;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "rgba(255,255,255,0.03)";
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
+              e.currentTarget.style.boxShadow = "none";
+            }}
           >
+            {/* Spotlight gradient on hover */}
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+              style={{
+                background: `radial-gradient(ellipse at 20% 20%, ${p.accentColor}08 0%, transparent 60%)`,
+              }}
+            />
             <div className="relative z-10 flex items-start gap-4">
               <span className="text-2xl shrink-0 mt-1">{p.icon}</span>
               <div className="flex-1">
