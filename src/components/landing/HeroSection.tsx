@@ -279,16 +279,30 @@ const HeroSection = () => {
                 </span>
               </div>
 
-              {/* Big amount */}
+              {/* Big amount with dramatic glow */}
               <div className="px-5 py-7 text-center relative z-10">
+                <div
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[80px] pointer-events-none"
+                  style={{
+                    background: "radial-gradient(ellipse, hsl(var(--destructive) / 0.25) 0%, transparent 70%)",
+                    filter: "blur(30px)",
+                  }}
+                />
                 <motion.div
-                  className="text-4xl font-bold font-mono tabular-nums"
+                  className="text-5xl font-bold font-mono tabular-nums relative"
+                  animate={{ 
+                    textShadow: [
+                      "0 0 20px hsl(var(--destructive) / 0.3)",
+                      "0 0 40px hsl(var(--destructive) / 0.5)",
+                      "0 0 20px hsl(var(--destructive) / 0.3)",
+                    ]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                   style={{
                     background: "linear-gradient(135deg, hsl(var(--destructive)), hsl(var(--accent-rose)))",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
-                    filter: "drop-shadow(0 0 20px hsl(var(--destructive) / 0.3))",
                   }}
                 >
                   €{exposure.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
