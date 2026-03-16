@@ -100,6 +100,8 @@ const Index = () => {
           {/* ── Content zone: themed background ── */}
           <Suspense fallback={<SectionFallback />}>
             <ProblemSection />
+            <StatsCounter />
+            <SectionDivider />
             <ROICalculatorSection />
             <SectionDivider />
             <SolutionSection />
