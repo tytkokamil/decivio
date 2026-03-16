@@ -245,9 +245,32 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30, rotateY: -5 }}
             animate={{ opacity: 1, y: 0, rotateY: 0 }}
             transition={{ delay: 0.5, duration: 1, ease }}
-            className="hidden lg:block"
+            className="hidden lg:block relative"
             style={{ perspective: "1200px" }}
           >
+            {/* Dramatic ambient glow behind card */}
+            <motion.div
+              className="absolute -inset-10 pointer-events-none"
+              animate={{
+                opacity: [0.4, 0.7, 0.4],
+              }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              style={{
+                background: "radial-gradient(ellipse, hsl(var(--destructive) / 0.12) 0%, transparent 60%)",
+                filter: "blur(60px)",
+              }}
+            />
+            {/* Animated gradient border */}
+            <motion.div
+              className="absolute -inset-[1px] rounded-2xl pointer-events-none"
+              animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+              style={{
+                background: "conic-gradient(from 180deg, hsl(var(--destructive) / 0.3), hsl(var(--accent-violet) / 0.2), hsl(var(--accent-teal) / 0.15), hsl(var(--destructive) / 0.3))",
+                backgroundSize: "200% 200%",
+                filter: "blur(1px)",
+              }}
+            />
             <div
               className="rounded-2xl overflow-hidden relative"
               style={{
@@ -257,12 +280,6 @@ const HeroSection = () => {
                 boxShadow: "0 30px 80px -20px rgba(0,0,0,0.5), 0 0 1px rgba(255,255,255,0.1) inset",
               }}
             >
-              {/* Gradient border glow */}
-              <div className="absolute -inset-[1px] rounded-2xl pointer-events-none" style={{
-                background: "conic-gradient(from 180deg, hsl(var(--primary) / 0.15), hsl(var(--accent-violet) / 0.1), hsl(var(--accent-teal) / 0.1), hsl(var(--primary) / 0.15))",
-                zIndex: -1,
-                filter: "blur(1px)",
-              }} />
 
               {/* Header */}
               <div className="px-5 py-3.5 flex items-center justify-between relative z-10" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
