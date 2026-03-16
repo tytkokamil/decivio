@@ -10,6 +10,7 @@ import ScarcityBar from "@/components/landing/ScarcityBar";
 
 const FoundingSection = lazy(() => import("@/components/landing/FoundingSection"));
 const ProblemSection = lazy(() => import("@/components/landing/ProblemSection"));
+const StatsCounter = lazy(() => import("@/components/landing/StatsCounter"));
 const SolutionSection = lazy(() => import("@/components/landing/SolutionSection"));
 const BeforeAfterTimeline = lazy(() => import("@/components/landing/BeforeAfterTimeline"));
 const ROICalculatorSection = lazy(() => import("@/components/landing/ROICalculatorSection"));
