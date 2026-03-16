@@ -30,7 +30,6 @@ const SectionDivider = () => {
           </motion.div>
           {/* Center glow dot */}
           <motion.div
-            style={{ opacity }}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full"
             animate={{
               boxShadow: [
@@ -41,6 +40,7 @@ const SectionDivider = () => {
             }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             style={{
+              opacity: opacity as any,
               background: "hsl(var(--destructive))",
             }}
           />
