@@ -260,67 +260,44 @@ const HeroSection = () => {
                 filter: "blur(60px)",
               }}
             />
-            {/* Animated gradient border */}
-            <motion.div
+            {/* Subtle border glow */}
+            <div
               className="absolute -inset-[1px] rounded-2xl pointer-events-none"
-              animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
               style={{
-                background: "conic-gradient(from 180deg, hsl(var(--destructive) / 0.3), hsl(var(--accent-violet) / 0.2), hsl(var(--accent-teal) / 0.15), hsl(var(--destructive) / 0.3))",
-                backgroundSize: "200% 200%",
-                filter: "blur(1px)",
+                background: "linear-gradient(160deg, rgba(239,68,68,0.15) 0%, rgba(255,255,255,0.04) 40%, rgba(239,68,68,0.08) 100%)",
               }}
             />
             <div
               className="rounded-2xl overflow-hidden relative"
               style={{
-                background: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "linear-gradient(170deg, rgba(20,20,28,0.95) 0%, rgba(12,12,18,0.98) 100%)",
+                border: "1px solid rgba(255,255,255,0.06)",
                 backdropFilter: "blur(20px)",
-                boxShadow: "0 30px 80px -20px rgba(0,0,0,0.5), 0 0 1px rgba(255,255,255,0.1) inset",
+                boxShadow: "0 30px 80px -20px rgba(0,0,0,0.6), 0 0 1px rgba(255,255,255,0.08) inset",
               }}
             >
 
               {/* Header */}
-              <div className="px-5 py-3.5 flex items-center justify-between relative z-10" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                <span className="text-[13px] font-semibold" style={{ color: "rgba(255,255,255,0.8)" }}>
+              <div className="px-5 py-3.5 flex items-center justify-between relative z-10" style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                <span className="text-[13px] font-semibold" style={{ color: "rgba(255,255,255,0.75)" }}>
                   💸 Economic Exposure
                 </span>
-                <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold px-2.5 py-1 rounded-full" style={{ background: "rgba(239,68,68,0.15)", color: "#EF4444" }}>
+                <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold px-2.5 py-1 rounded-full" style={{ background: "rgba(239,68,68,0.1)", color: "rgba(239,68,68,0.8)" }}>
                   <motion.span
                     animate={{ opacity: [1, 0.3, 1] }}
                     transition={{ duration: 1.2, repeat: Infinity }}
-                    className="w-1.5 h-1.5 rounded-full bg-destructive inline-block"
+                    className="w-1.5 h-1.5 rounded-full inline-block"
+                    style={{ background: "#EF4444" }}
                   />
                   LIVE
                 </span>
               </div>
 
-              {/* Big amount with dramatic glow */}
+              {/* Big amount */}
               <div className="px-5 py-7 text-center relative z-10">
-                <div
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[80px] pointer-events-none"
-                  style={{
-                    background: "radial-gradient(ellipse, hsl(var(--destructive) / 0.25) 0%, transparent 70%)",
-                    filter: "blur(30px)",
-                  }}
-                />
                 <motion.div
-                  className="text-5xl font-bold font-mono tabular-nums relative"
-                  animate={{ 
-                    textShadow: [
-                      "0 0 20px hsl(var(--destructive) / 0.3)",
-                      "0 0 40px hsl(var(--destructive) / 0.5)",
-                      "0 0 20px hsl(var(--destructive) / 0.3)",
-                    ]
-                  }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  style={{
-                    background: "linear-gradient(135deg, hsl(var(--destructive)), hsl(var(--accent-rose)))",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
+                  className="text-5xl font-bold font-mono tabular-nums"
+                  style={{ color: "hsl(0 70% 60%)" }}
                 >
                   €{exposure.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </motion.div>
@@ -346,22 +323,22 @@ const HeroSection = () => {
                   >
                     <div className="w-1.5 h-7 rounded-full shrink-0" style={{ background: item.color }} />
                     <div className="flex-1 min-w-0">
-                      <p className="text-[12px] font-medium truncate" style={{ color: "rgba(255,255,255,0.7)" }}>{item.title}</p>
+                      <p className="text-[12px] font-medium truncate" style={{ color: "rgba(255,255,255,0.65)" }}>{item.title}</p>
                     </div>
-                    <span className="text-[9px] font-bold font-mono uppercase px-2 py-0.5 rounded-md" style={{ color: item.badgeColor, background: `${item.badgeColor}15` }}>
+                    <span className="text-[9px] font-bold font-mono uppercase px-2 py-0.5 rounded-md" style={{ color: item.badgeColor, background: `${item.badgeColor}10`, border: `1px solid ${item.badgeColor}20` }}>
                       {item.badge}
                     </span>
-                    <span className="text-[10px] font-mono" style={{ color: "rgba(255,255,255,0.3)" }}>{item.days}</span>
+                    <span className="text-[10px] font-mono" style={{ color: "rgba(255,255,255,0.25)" }}>{item.days}</span>
                   </motion.div>
                 ))}
               </div>
 
               {/* Action buttons */}
-              <div className="px-4 py-3.5 flex gap-2.5 relative z-10" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-                <button className="flex-1 text-[11px] font-semibold py-2.5 rounded-xl transition-all hover:scale-[1.02]" style={{ background: "rgba(34,197,94,0.1)", color: "#22C55E" }}>
+              <div className="px-4 py-3.5 flex gap-2.5 relative z-10" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+                <button className="flex-1 text-[11px] font-semibold py-2.5 rounded-xl transition-all hover:scale-[1.02]" style={{ background: "rgba(34,197,94,0.08)", color: "rgba(34,197,94,0.7)", border: "1px solid rgba(34,197,94,0.1)" }}>
                   ✓ Genehmigen
                 </button>
-                <button className="flex-1 text-[11px] font-semibold py-2.5 rounded-xl transition-all hover:scale-[1.02]" style={{ background: "rgba(239,68,68,0.1)", color: "#EF4444" }}>
+                <button className="flex-1 text-[11px] font-semibold py-2.5 rounded-xl transition-all hover:scale-[1.02]" style={{ background: "rgba(239,68,68,0.08)", color: "rgba(239,68,68,0.7)", border: "1px solid rgba(239,68,68,0.1)" }}>
                   ✗ Ablehnen
                 </button>
               </div>
