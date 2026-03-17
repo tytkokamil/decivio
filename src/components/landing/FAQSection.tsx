@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, MessageCircleQuestion } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -60,16 +60,6 @@ const FAQSection = () => {
 
   return (
     <section id="faq" className="py-20 relative">
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px]"
-          style={{
-            background: "radial-gradient(ellipse, hsl(var(--destructive) / 0.03) 0%, transparent 70%)",
-            filter: "blur(80px)",
-          }}
-        />
-      </div>
-
       <div className="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -93,60 +83,40 @@ const FAQSection = () => {
           </h2>
         </motion.div>
 
-        <div className="space-y-3">
+        <div className="space-y-2">
           {faqs.map((faq, i) => {
             const isOpen = openItem === i;
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.05, duration: 0.5, ease }}
+                transition={{ delay: i * 0.04, duration: 0.5, ease }}
               >
                 <div
-                  className={`group relative rounded-2xl border px-6 transition-all duration-500 overflow-hidden ${
+                  className={`group rounded-xl border transition-all duration-300 ${
                     isOpen
-                      ? "bg-card/80 border-destructive/20 shadow-[0_0_30px_-10px_hsl(var(--destructive)/0.15)]"
-                      : "bg-card/40 border-border/20 hover:border-border/40 hover:bg-card/60"
+                      ? "bg-card/60 border-border/40"
+                      : "bg-card/20 border-border/10 hover:border-border/30 hover:bg-card/30"
                   }`}
                 >
-                  {/* Subtle left accent line */}
-                  <div
-                    className={`absolute left-0 top-0 bottom-0 w-[2px] transition-all duration-500 ${
-                      isOpen
-                        ? "bg-gradient-to-b from-destructive/60 via-destructive/40 to-transparent"
-                        : "bg-transparent group-hover:bg-gradient-to-b group-hover:from-muted-foreground/20 group-hover:via-muted-foreground/10 group-hover:to-transparent"
-                    }`}
-                  />
-
                   <button
                     onClick={() => setOpenItem(isOpen ? null : i)}
-                    className="w-full flex items-center gap-4 py-5 text-left"
+                    className="w-full flex items-center justify-between gap-4 px-6 py-4 text-left"
                   >
-                    <div className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold transition-all duration-300 ${
-                      isOpen
-                        ? "bg-destructive/10 text-destructive"
-                        : "bg-muted/50 text-muted-foreground/50 group-hover:bg-muted/80 group-hover:text-muted-foreground/70"
-                    }`}>
-                      {String(i + 1).padStart(2, '0')}
-                    </div>
-                    <span className={`text-[15px] font-semibold flex-1 leading-snug transition-colors duration-300 ${
-                      isOpen ? "text-foreground" : "text-foreground/80 group-hover:text-foreground/90"
+                    <span className={`text-[15px] font-medium leading-snug transition-colors duration-200 ${
+                      isOpen ? "text-foreground" : "text-foreground/70 group-hover:text-foreground/90"
                     }`}>
                       {faq.q}
                     </span>
                     <motion.div
                       animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.4, ease }}
-                      className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 ${
-                        isOpen
-                          ? "bg-destructive/10"
-                          : "bg-transparent group-hover:bg-muted/50"
-                      }`}
+                      transition={{ duration: 0.3, ease }}
+                      className="flex-shrink-0"
                     >
-                      <ChevronDown className={`w-4 h-4 transition-colors duration-300 ${
-                        isOpen ? "text-destructive" : "text-muted-foreground/40"
+                      <ChevronDown className={`w-4 h-4 transition-colors duration-200 ${
+                        isOpen ? "text-foreground/60" : "text-muted-foreground/30"
                       }`} />
                     </motion.div>
                   </button>
@@ -157,10 +127,10 @@ const FAQSection = () => {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.4, ease }}
+                        transition={{ duration: 0.3, ease }}
                         className="overflow-hidden"
                       >
-                        <div className="text-[14px] text-muted-foreground leading-[1.85] pb-6 pl-12">
+                        <div className="text-[14px] text-muted-foreground leading-[1.8] px-6 pb-5">
                           {faq.a}
                         </div>
                       </motion.div>
