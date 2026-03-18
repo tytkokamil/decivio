@@ -84,7 +84,8 @@ const StatItem = React.memo(({ stat, index }: { stat: Stat; index: number }) => 
       />
     </motion.div>
   );
-};
+});
+StatItem.displayName = "StatItem";
 
 const StatsCounter = () => (
   <section className="py-16 relative overflow-hidden">
