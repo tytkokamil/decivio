@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -36,7 +36,7 @@ const useCountUp = (target: number, duration: number, inView: boolean) => {
   return current;
 };
 
-const StatItem = ({ stat, index }: { stat: Stat; index: number }) => {
+const StatItem = React.memo(({ stat, index }: { stat: Stat; index: number }) => {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const count = useCountUp(stat.value, 1.8, inView);
@@ -84,7 +84,8 @@ const StatItem = ({ stat, index }: { stat: Stat; index: number }) => {
       />
     </motion.div>
   );
-};
+});
+StatItem.displayName = "StatItem";
 
 const StatsCounter = () => (
   <section className="py-16 relative overflow-hidden">
