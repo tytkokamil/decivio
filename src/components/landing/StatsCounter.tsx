@@ -36,7 +36,7 @@ const useCountUp = (target: number, duration: number, inView: boolean) => {
   return current;
 };
 
-const StatItem = ({ stat, index }: { stat: Stat; index: number }) => {
+const StatItem = React.memo(({ stat, index }: { stat: Stat; index: number }) => {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const count = useCountUp(stat.value, 1.8, inView);
