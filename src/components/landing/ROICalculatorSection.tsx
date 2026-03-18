@@ -31,7 +31,7 @@ const AnimatedNumber = ({ value }: { value: number }) => {
   return <span ref={ref}>€0</span>;
 };
 
-const SliderInput = ({ label, value, onChange, min, max, step = 1, suffix = "" }: {
+const SliderInput = React.memo(({ label, value, onChange, min, max, step = 1, suffix = "" }: {
   label: string; value: number; onChange: (v: number) => void; min: number; max: number; step?: number; suffix?: string;
 }) => {
   const pct = ((value - min) / (max - min)) * 100;
