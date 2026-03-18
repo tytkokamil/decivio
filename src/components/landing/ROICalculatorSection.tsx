@@ -57,7 +57,8 @@ const SliderInput = React.memo(({ label, value, onChange, min, max, step = 1, su
       </div>
     </div>
   );
-};
+});
+SliderInput.displayName = "SliderInput";
 
 const ROICalculatorSection = React.memo(() => {
   const [hourlyRate, setHourlyRate] = useState(90);
