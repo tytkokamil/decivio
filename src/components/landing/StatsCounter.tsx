@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const ease = [0.16, 1, 0.3, 1] as const;
