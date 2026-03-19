@@ -33,14 +33,36 @@ const CTASection = () => {
           transition={{ duration: 0.8, ease }}
         >
           <h2 className="text-3xl md:text-[2.75rem] font-bold tracking-[-0.04em] mb-5 leading-[1.1]">
-            Erste Entscheidung in 3 Minuten.
+            Bereit, Entscheidungskosten
             <br />
-            <span className="gradient-text">Keine Kreditkarte. Kein IT-Projekt.</span>
+            <span className="gradient-text">sichtbar zu machen?</span>
           </h2>
 
-          <p className="mb-12 text-[16px] text-muted-foreground max-w-md mx-auto leading-relaxed">
-            Starten Sie heute. Ihr nächster Audit-Prüfer wird es Ihnen danken.
+          <p className="mb-8 text-[16px] text-muted-foreground max-w-md mx-auto leading-relaxed">
+            Erste Entscheidung in 3 Minuten. Keine Kreditkarte. Kein IT-Projekt.
+            <br />Ihr nächster Audit-Prüfer wird es Ihnen danken.
           </p>
+
+          {/* Social proof */}
+          <div className="flex items-center justify-center gap-3 mb-10">
+            <div className="flex -space-x-2">
+              {["TB", "CW", "MH"].map((initials, i) => (
+                <div
+                  key={i}
+                  className="w-7 h-7 rounded-full flex items-center justify-center text-[9px] font-bold ring-2 ring-background"
+                  style={{
+                    background: `linear-gradient(135deg, hsl(var(--primary) / 0.3), hsl(var(--accent-violet) / 0.2))`,
+                    color: "hsl(var(--foreground) / 0.7)",
+                  }}
+                >
+                  {initials}
+                </div>
+              ))}
+            </div>
+            <span className="text-[12px] text-muted-foreground">
+              <strong className="text-foreground/70">50+ Mittelständler</strong> vertrauen bereits auf Decivio
+            </span>
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-3.5 justify-center">
             <Link

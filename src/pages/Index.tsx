@@ -115,6 +115,7 @@ const Index = () => {
             <ComplianceSection />
             <SectionDivider />
             <ComparisonSection />
+            <TestimonialSection />
             <AIShowcaseSection />
             <SectionDivider />
             <PricingSection />
