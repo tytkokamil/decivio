@@ -14,9 +14,9 @@ export default {
   	},
   	extend: {
   		fontFamily: {
-  			sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
-  			display: ['Space Grotesk', 'Inter', 'sans-serif'],
-  			mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+			sans: ['General Sans', 'DM Sans', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+			display: ['Satoshi', 'General Sans', 'sans-serif'],
+			mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
   		},
   		fontSize: {
   			'2xs': '0.625rem',
