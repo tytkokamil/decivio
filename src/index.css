@@ -13,7 +13,7 @@ html {
 .landing-page {
   background: hsl(var(--background));
   color: hsl(var(--muted-foreground));
-  font-family: 'Inter', 'DM Sans', sans-serif;
+  font-family: 'General Sans', 'DM Sans', sans-serif;
 }
 .landing-page h1, .landing-page h2, .landing-page h3, .landing-page h4 {
   font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
