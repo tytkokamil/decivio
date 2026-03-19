@@ -210,11 +210,11 @@ const HeroSection = () => {
                 {["TB", "CW", "MH", "SK"].map((initials, i) => (
                   <div
                     key={i}
-                    className="w-7 h-7 rounded-full flex items-center justify-center text-[9px] font-bold ring-2"
+                    className="w-7 h-7 rounded-full flex items-center justify-center text-[9px] font-bold"
                     style={{
                       background: `linear-gradient(135deg, hsl(${[0, 220, 150, 280][i]} 60% 50% / 0.3), hsl(${[0, 220, 150, 280][i]} 60% 40% / 0.2))`,
                       color: "rgba(255,255,255,0.7)",
-                      ringColor: "hsl(222 47% 4%)",
+                      border: "2px solid hsl(222 47% 4%)",
                     }}
                   >
                     {initials}
