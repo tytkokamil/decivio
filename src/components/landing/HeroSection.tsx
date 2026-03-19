@@ -190,13 +190,40 @@ const HeroSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.9, duration: 0.6 }}
-              className="flex flex-wrap items-center gap-x-6 gap-y-2.5 mb-11"
+              className="flex flex-wrap items-center gap-x-6 gap-y-2.5 mb-6"
             >
               {["Keine Kreditkarte", "DSGVO-konform", "Server in Deutschland", "14 Tage kostenlos"].map((item, i) => (
                 <span key={i} className="text-[12px] font-medium flex items-center gap-1.5" style={{ color: "rgba(255,255,255,0.35)" }}>
                   <span className="w-1 h-1 rounded-full" style={{ background: "hsl(var(--primary) / 0.6)" }} />{item}
                 </span>
               ))}
+            </motion.div>
+
+            {/* Social proof nudge */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2, duration: 0.8 }}
+              className="flex items-center gap-3 mb-11"
+            >
+              <div className="flex -space-x-2">
+                {["TB", "CW", "MH", "SK"].map((initials, i) => (
+                  <div
+                    key={i}
+                    className="w-7 h-7 rounded-full flex items-center justify-center text-[9px] font-bold"
+                    style={{
+                      background: `linear-gradient(135deg, hsl(${[0, 220, 150, 280][i]} 60% 50% / 0.3), hsl(${[0, 220, 150, 280][i]} 60% 40% / 0.2))`,
+                      color: "rgba(255,255,255,0.7)",
+                      border: "2px solid hsl(222 47% 4%)",
+                    }}
+                  >
+                    {initials}
+                  </div>
+                ))}
+              </div>
+              <span className="text-[12px]" style={{ color: "rgba(255,255,255,0.4)" }}>
+                <strong style={{ color: "rgba(255,255,255,0.6)" }}>50+ Unternehmen</strong> nutzen bereits Decivio
+              </span>
             </motion.div>
 
             {/* CTA Buttons */}

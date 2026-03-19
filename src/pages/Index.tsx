@@ -19,6 +19,7 @@ const RolesSection = lazy(() => import("@/components/landing/RolesSection"));
 const IndustriesSection = lazy(() => import("@/components/landing/IndustriesSection"));
 const ComplianceSection = lazy(() => import("@/components/landing/ComplianceSection"));
 const ComparisonSection = lazy(() => import("@/components/landing/ComparisonSection"));
+const TestimonialSection = lazy(() => import("@/components/landing/TestimonialSection"));
 const AIShowcaseSection = lazy(() => import("@/components/landing/AIShowcaseSection"));
 const PricingSection = lazy(() => import("@/components/landing/PricingSection"));
 const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
@@ -114,6 +115,7 @@ const Index = () => {
             <ComplianceSection />
             <SectionDivider />
             <ComparisonSection />
+            <TestimonialSection />
             <AIShowcaseSection />
             <SectionDivider />
             <PricingSection />
